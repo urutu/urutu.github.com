@@ -63,40 +63,27 @@ Urutu supports two paradigms.
 <p>
 GPU programming introduces thread-level programming for developers to extract every last bit of performance from GPUs. Urutu exposes these features to Python by adding new thread level syntax. By using the reserved syntax <code>tx ty tz bx by bz Tx Ty Tz Bx By Bz</code> the threads and blocks can be controlled. Urutu also introduce different memory pools inside GPU to programmers. <code>__global __shared __register __constant</code> variables with these qualifiers allocate memory in different segments of memory which differ in size and performance. The qualifiers can be added before variable declaration to allocate and access memory in different memory locations.
 The reserved syntaxes represents:
-<pre>
-<code>tx</code>: Threads across X-d
+<code>tx</code>: Threads across X-d<br>
+<code>ty</code>: Threads across Y-d<br>
+<code>tz</code>: Threads across Z-d<br>
+<code>Tx</code>: Total number of threads across X-d (Or) Block size in X-d<br>
+<code>Ty</code>: Total number of threads across Y-d (Or) Block size in Y-d<br>
+<code>Tz</code>: Total number of threads across Z-d (Or) Block size in Z-d<br>
+<code>bx</code>: Blocks across X-d<br>
+<code>by</code>: Blocks across Y-d<br>
+<code>bz</code>: Blocks across Z-d<br>
+<code>Bx</code>: Total number of blocks across X-d (Or) Grid size in X-d<br>
+<code>By</code>: Total number of blocks across Y-d (Or) Grid size in Y-d<br>
+<code>Bz</code>: Total number of blocks across Z-d (Or) Grid size in Z-d<br><br>
 
-<code>ty</code>: Threads across Y-d
+<code>__global</code>: Global Memory pool, which is accessable to all the threads running in the kernel<br>
 
-<code>tz</code>: Threads across Z-d
+<code>__shared</code>: Shared Memory pool, which is accessable to all the threads running in the same thread block<br>
 
-<code>Tx</code>: Total number of threads across X-d (Or) Block size in X-d
+<code>__register</code>: Register Memory pool, which is accessable only to the thread.<br>
 
-<code>Ty</code>: Total number of threads across Y-d (Or) Block size in Y-d
+<code>__constant</code>: Constant Memory pool, variables declared in this memory pool holds the same value till end of life time of the kernel. (Cannot be changed by the kernel)<br><br>
 
-<code>Tz</code>: Total number of threads across Z-d (Or) Block size in Z-d
-
-<code>bx</code>: Blocks across X-d
-
-<code>by</code>: Blocks across Y-d
-
-<code>bz</code>: Blocks across Z-d
-
-<code>Bx</code>: Total number of blocks across X-d (Or) Grid size in X-d
-
-<code>By</code>: Total number of blocks across Y-d (Or) Grid size in Y-d
-
-<code>Bz</code>: Total number of blocks across Z-d (Or) Grid size in Z-d
-
-
-<code>__global</code>: Global Memory pool, which is accessable to all the threads running in the kernel
-
-<code>__shared</code>: Shared Memory pool, which is accessable to all the threads running in the same thread block
-
-<code>__register</code>: Register Memory pool, which is accessable only to the thread.
-
-<code>__constant</code>: Constant Memory pool, variables declared in this memory pool holds the same value till end of life time of the kernel. (Cannot be changed by the kernel)
-</pre>
 </p>
 
 <b> Data-Level Parallelism </b>
