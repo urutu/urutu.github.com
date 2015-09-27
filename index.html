@@ -31,21 +31,7 @@
 <p>Urutu is a Python library which accelerates methods conforming to python syntax using GPUs. 
   <p>
     Example:
-    <code>
-      from Urutu import *
-      import numpy as np
-      
-      @Urutu("gpu")
-      def Add(a, b, c):
-        c[tx] = a[tx] + b[tx]
-        return c
-        
-      a = np.random.randint(10, size=100)
-      b = np.random.randint(10, size=100)
-      c = np.empty_like(a)
-      
-      print Add(a, b, c)
-    </code>
+      <script src="https://gist.github.com/adityaatluri/25ef39305cfb15262c1e.js"></script>
   </p>
   The code example is a simple example for adding elements of two vectors of type "long". Data management and data type checks are managed by Urutu. Urutu supports OpenCL and CUDA enabled devices with PyOpenCL or PyCUDA installed for them.  
 </p>
