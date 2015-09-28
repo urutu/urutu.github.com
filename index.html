@@ -59,10 +59,10 @@ Urutu supports two paradigms.
 <li><b> Data-Level Parallelism </b></li>
 </ul>
 
-<b> Thread-Level Parallelism </b>
+<b> Thread-Level Parallelism: </b>
 <p>
 GPU programming introduces thread-level programming for developers to extract every last bit of performance from GPUs. Urutu exposes these features to Python by adding new thread level syntax. By using the reserved syntax <code>tx ty tz bx by bz Tx Ty Tz Bx By Bz</code> the threads and blocks can be controlled. Urutu also introduce different memory pools inside GPU to programmers. <code>__global __shared __register __constant</code> variables with these qualifiers allocate memory in different segments of memory which differ in size and performance. The qualifiers can be added before variable declaration to allocate and access memory in different memory locations.
-The reserved syntaxes represents:
+The reserved syntaxes represents:<br>
 <code>tx</code>: Threads across X-d<br>
 <code>ty</code>: Threads across Y-d<br>
 <code>tz</code>: Threads across Z-d<br>
@@ -76,6 +76,8 @@ The reserved syntaxes represents:
 <code>By</code>: Total number of blocks across Y-d (Or) Grid size in Y-d<br>
 <code>Bz</code>: Total number of blocks across Z-d (Or) Grid size in Z-d<br><br>
 
+Usage of these syntaxes is depicted in the code above.
+
 <code>__global</code>: Global Memory pool, which is accessable to all the threads running in the kernel<br>
 
 <code>__shared</code>: Shared Memory pool, which is accessable to all the threads running in the same thread block<br>
@@ -83,6 +85,10 @@ The reserved syntaxes represents:
 <code>__register</code>: Register Memory pool, which is accessable only to the thread.<br>
 
 <code>__constant</code>: Constant Memory pool, variables declared in this memory pool holds the same value till end of life time of the kernel. (Cannot be changed by the kernel)<br><br>
+
+<script src="https://gist.github.com/adityaatluri/0918e5170ee9223f719f.js"></script>
+
+In the above example variables <code>x</code> and <code>y</code> are shared variables which reside on shared memory pool. The data residing in global memory pool which is stored in variables <code>a , b</code> and <code>c</code> are transfered to shared pools by assigning the data to variables. These variables can be used as regular variables for computation.
 
 </p>
 
