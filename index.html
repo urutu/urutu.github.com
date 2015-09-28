@@ -77,7 +77,7 @@ The reserved syntaxes represents:<br>
 <code>Bz</code>: Total number of blocks across Z-d (Or) Grid size in Z-d<br><br>
 
 Usage of these syntaxes is depicted in the code above.
-
+<br>
 <code>__global</code>: Global Memory pool, which is accessable to all the threads running in the kernel<br>
 
 <code>__shared</code>: Shared Memory pool, which is accessable to all the threads running in the same thread block<br>
@@ -94,9 +94,11 @@ In the above example variables <code>x</code> and <code>y</code> are shared vari
 
 <b> Data-Level Parallelism </b>
 <p>
-Data level parallelism is 
+Data level parallelism applies functions to each element in the vast data arraysthere by expoliting parallelism of independent nature of the data elements. The below examples shows how to use it using Urutu. The code represent a simple DAXPY BLAS algorithm widely used in algebraic computations. As the algorithm operate on each element separately, the execution of the function can be made general for each element. The code shows this, as there are no threads involved in computation, all the processing is data driven.
 </p>
 <script src="https://gist.github.com/adityaatluri/bcf40b4de5e72369bb29.js"></script>
+
+
 
 </p>
 
